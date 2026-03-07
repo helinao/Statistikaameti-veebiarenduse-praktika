@@ -6,7 +6,7 @@ type QuestionProps = {
     nextQuestion: () => void;
 };
 
-const Question = ({ question }: QuestionProps) => {
+const Question = ({ question, nextQuestion }: QuestionProps) => {
     const [feedback, setFeedback] = useState("");
     const checkAnswer = (option: string) => {
         if (option === question.correctAnswer) {
