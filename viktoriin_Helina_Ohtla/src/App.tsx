@@ -6,6 +6,8 @@ import './App.css'
 
 function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
+
+
   const currentQuestion = questions[currentQuestionIndex]
 
   //moving to next question
