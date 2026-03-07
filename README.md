@@ -1,2 +1,2 @@
-# Statistikaameti-veebiarenduse-praktika
+# Statistikaameti veebiarenduse praktikakohale kandideerimise kodutöö
 Statistikaameti veebiarenduse praktikakoha kodutöö raames loodud repositoorium.
