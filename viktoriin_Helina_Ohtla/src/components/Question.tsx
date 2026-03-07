@@ -3,6 +3,7 @@ import { useState } from "react";
 
 type QuestionProps = {
     question: IQuestion;
+    nextQuestion: () => void;
 };
 
 const Question = ({ question }: QuestionProps) => {
