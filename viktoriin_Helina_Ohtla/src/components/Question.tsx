@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 type QuestionProps = {
     question: IQuestion;
     nextQuestion: () => void;
+    onAnswer: (selectedOption: string) => void;
 };
 
-const Question = ({ question, nextQuestion }: QuestionProps) => {
+const Question = ({ question, nextQuestion, onAnswer }: QuestionProps) => {
     const [feedback, setFeedback] = useState("");
     const [hasAnswered, setHasAnswered] = useState(false);
     
@@ -22,6 +23,7 @@ const Question = ({ question, nextQuestion }: QuestionProps) => {
             setFeedback("Vale vastus.");
         }
         setHasAnswered(true);
+        onAnswer(option);
     };
 
     return (
