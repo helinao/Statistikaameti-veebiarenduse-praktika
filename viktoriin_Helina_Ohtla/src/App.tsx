@@ -6,7 +6,11 @@ import './App.css'
 
 function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-
+  //save answers
+  const [answers, setAnswers] = useState<string[]>([])
+  const handleAnswer = (selectedOption: string) => {
+    setAnswers([...answers, selectedOption])
+  }
 
   const currentQuestion = questions[currentQuestionIndex]
 
@@ -21,6 +25,7 @@ function App() {
       <Question 
         question={currentQuestion} 
         nextQuestion={nextQuestion}
+        onAnswer={handleAnswer}
       />
     </>
   )
