@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --font-family: 'Roboto', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  --color-bg: #FFFFFF;
+  --color-text: #000000;
+
+  --color-btn-text: #FFFFFF;
+  --color-btn-bg: #000000;
+  --color-btn-hover-text: #000000;
+  --color-btn-hover-bg: #FFFFFF;
+  --btn-border: 2px solid #000000;
+
+  --bg-correctAnswer: #4DC14D;
+  --bg-wrongAnswer: #DC1919;
+
+  --table-border-color: #565656;
+  --table-header-bg: #DDDDDD;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  min-width: 320px;
+  min-height: 85vh;
+  
+  background-image: url("./assets/pattern.png");
+  background-repeat: no-repeat;
+  background-position: center;  
+}
+
+.app-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1600px;
+  width: calc(100% - 64px);
+  min-height: 75vh;
+  margin: 100px auto;
+  padding: 2rem;
+  background-color: var(--color-bg);
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 2.8125rem;
+  font-weight: 700;
+}
+
+p {
+  font-weight: var(--font-weight-regular);
+}
+
+/* button styles */
+button {
+  font-weight: var(--font-weight-bold);
+  background-color: var(--color-btn-bg);
+  color: var(--color-btn-text);
+  padding: 10.5px 28px;
+  line-height: 20px;
+  border: var(--btn-border);
+}
+
+button:hover {
+  font-weight: var(--font-weight-bold);
+  background-color: var(--color-btn-hover-bg);
+  color: var(--color-btn-hover-text);
+  border: var(--btn-border);
+  cursor: pointer;
+}
+
+button.correct {
+  background-color: var(--bg-correctAnswer);
+  color: var(--color-btn-text);
+}
+
+button.wrong {
+  background-color: var(--bg-wrongAnswer);
+  color: var(--color-btn-text);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.options div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* table styles */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 24px;
+}
+
+th, td {
+  border: 1px solid var(--table-border-color);
+  padding: 12px 16px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--table-header-bg);
+  font-weight: var(--font-weight-bold);
+}
+
+.result-correct {
+  color: var(--bg-correctAnswer);
+  font-weight: var(--font-weight-bold);
+}
+
+.result-wrong {
+  color: var(--bg-wrongAnswer);
+  font-weight: var(--font-weight-bold);
+}
