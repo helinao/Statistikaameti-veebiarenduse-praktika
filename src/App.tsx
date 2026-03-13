@@ -43,6 +43,7 @@ function App() {
 
     {!isQuizFinished && (
       <Question 
+        key={currentQuestionIndex}
         question={currentQuestion} 
         isLastQuestion={isLastQuestion}
         nextQuestion={nextQuestion}
