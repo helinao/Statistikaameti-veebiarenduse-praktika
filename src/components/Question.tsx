@@ -1,5 +1,5 @@
 import type { IQuestion } from "../questions/questionsInterface";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 type QuestionProps = {
     question: IQuestion;
@@ -12,11 +12,6 @@ const Question = ({ question, isLastQuestion, nextQuestion, onAnswer }: Question
     const [feedback, setFeedback] = useState("");
     const [hasAnswered, setHasAnswered] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState("");
-    
-    useEffect(() => {
-        setFeedback("");
-        setHasAnswered(false);
-    }, [question]);
 
     const checkAnswer = (option: string) => {
         setSelectedAnswer(option);
