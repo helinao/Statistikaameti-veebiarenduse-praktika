@@ -10,6 +10,7 @@ type QuestionProps = {
 const Question = ({ question, nextQuestion, onAnswer }: QuestionProps) => {
     const [feedback, setFeedback] = useState("");
     const [hasAnswered, setHasAnswered] = useState(false);
+    const [selectedAnswer, setSelectedAnswer] = useState("");
     
     useEffect(() => {
         setFeedback("");
@@ -17,6 +18,7 @@ const Question = ({ question, nextQuestion, onAnswer }: QuestionProps) => {
     }, [question]);
 
     const checkAnswer = (option: string) => {
+        setSelectedAnswer(option);
         if (option === question.correctAnswer) {
             setFeedback("Õige vastus!");
         } else {
@@ -26,17 +28,24 @@ const Question = ({ question, nextQuestion, onAnswer }: QuestionProps) => {
         onAnswer(option);
     };
 
+    const getButtonClass = (option: string) => {
+        if (!hasAnswered) return "";
+        if (option === question.correctAnswer) return "correct";
+        if (option === selectedAnswer) return "wrong";
+        return "";
+    };
+
     return (
         <div>
             <h2>{question.question}</h2>
-            <ul>
+            <ul className="options">
                 {question.options.map((option) => (
-                    <div key={option}>
-                        <button onClick={() => checkAnswer(option)}
+                    <li key={option}>
+                        <button className={getButtonClass(option)} onClick={() => checkAnswer(option)}
                             disabled={hasAnswered}>
                             {option}
                         </button>
-                    </div>
+                    </li>
                 ))}
             </ul>
             <h3>{feedback}</h3>

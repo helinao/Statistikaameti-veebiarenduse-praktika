@@ -22,9 +22,15 @@ const ResultsTable = ({ questions, answers }: ResultsTableProps) => {
                         <tr key={index}>
                             <td>{question.question}</td>
                             <td>{answers[index] || "Pole vastust"}</td>
-                            <td>{answers[index] === question.correctAnswer 
+                            <td className={
+                                answers[index] === question.correctAnswer
+                                ? "result-correct"
+                                : "result-wrong"
+                            }>
+                            {answers[index] === question.correctAnswer 
                                 ? "Õige" 
-                                : "Vale"}
+                                : "Vale"
+                            }
                             </td>
                         </tr>
                     ))}

@@ -3,8 +3,6 @@ import Question from './components/Question'
 import questions from './questions/questionsData'
 import ResultsTable from './components/ResultsTable'
 
-import './App.css'
-
 function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   //quiz finished
@@ -39,7 +37,7 @@ function App() {
       : "Hea algus! Proovi uuesti, et parandada oma tulemust."
 
   return (
-    <>
+    <div className="app-container">
     <h1>Eesti teemaline viktoriin</h1>
 
     {!isQuizFinished && (
@@ -60,7 +58,7 @@ function App() {
         />
       </div>
     )}
-    </>
+    </div>
   )
 }
 
