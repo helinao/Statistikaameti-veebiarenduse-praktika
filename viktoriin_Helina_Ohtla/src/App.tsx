@@ -14,6 +14,7 @@ function App() {
   }
 
   const currentQuestion = questions[currentQuestionIndex]
+  const isLastQuestion = currentQuestionIndex === questions.length - 1
 
   //moving to next question
   const nextQuestion = () => {
@@ -43,6 +44,7 @@ function App() {
     {!isQuizFinished && (
       <Question 
         question={currentQuestion} 
+        isLastQuestion={isLastQuestion}
         nextQuestion={nextQuestion}
         onAnswer={handleAnswer}
       />

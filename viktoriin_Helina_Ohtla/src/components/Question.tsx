@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 
 type QuestionProps = {
     question: IQuestion;
+    isLastQuestion: boolean;
     nextQuestion: () => void;
     onAnswer: (selectedOption: string) => void;
 };
 
-const Question = ({ question, nextQuestion, onAnswer }: QuestionProps) => {
+const Question = ({ question, isLastQuestion, nextQuestion, onAnswer }: QuestionProps) => {
     const [feedback, setFeedback] = useState("");
     const [hasAnswered, setHasAnswered] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState("");
@@ -51,7 +52,9 @@ const Question = ({ question, nextQuestion, onAnswer }: QuestionProps) => {
             <h3>{feedback}</h3>
 
             {hasAnswered && (
-                <button onClick={nextQuestion}>Järgmine küsimus</button>
+                <button onClick={nextQuestion}>
+                    {isLastQuestion ? "Tulemuste juurde" : "Järgmine küsimus"}
+                </button>
             )}
         </div>
     );
